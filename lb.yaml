@@ -1,0 +1,8 @@
+ndctl:
+  ndctl:
+    build:
+      - make -f Makefile.lb
+    install:
+      - make -f Makefile.lb install
+    deps:
+      - file://.
