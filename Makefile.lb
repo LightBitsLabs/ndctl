@@ -1,0 +1,24 @@
+include $(WORKSPACE_TOP)/common/Makefile.env
+
+NDCTL_UTIL_INSTALL_DIR ?= $(shell component-tool localpath --repo=ndctl --type=$(BUILD_TYPE) ndctl)
+
+NDCTL_DIR := $(WORKSPACE_TOP)/ndctl/
+
+all: build
+
+build:
+	cd $(NDCTL_DIR) && ./autogen.sh
+	cd $(NDCTL_DIR) && ./configure CFLAGS='-g -O0' --prefix=$(NDCTL_UTIL_INSTALL_DIR) --sysconfdir=/etc --libdir=$(NDCTL_UTIL_INSTALL_DIR)/lib
+	$(Q)$(MAKE)
+	$(Q)$(MAKE) check
+
+install:
+	$(Q)$(MAKE) install
+
+checkin:
+	$(Q)component-tool checkin --repo=ndctl --type=$(BUILD_TYPE) ndctl
+
+clean:
+	$(Q)$(MAKE) clean
+
+.PHONY: build install checkin clean
