@@ -35,6 +35,10 @@ Documentation/ndctl/ndctl-zero-labels.1
 Documentation/ndctl/ndctl.1
 ccan/list/.dirstamp
 ccan/str/.dirstamp
+*.1
+Documentation/daxctl/asciidoc.conf
+Documentation/ndctl/asciidoc.conf
+.dirstamp
 daxctl/daxctl
 daxctl/lib/libdaxctl.la
 daxctl/lib/libdaxctl.lo
@@ -88,3 +92,15 @@ util/.dirstamp
 util/log.lo
 util/sysfs.lo
 version.m4
+*.a
+ndctl/lib/libndctl.pc
+ndctl/ndctl
+rhel/
+sles/ndctl.spec
+util/log.lo
+util/sysfs.lo
+version.m4
+*.swp
+cscope.files
+cscope*.out
+tags
