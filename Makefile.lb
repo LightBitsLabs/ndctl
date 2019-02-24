@@ -8,7 +8,7 @@ all: build
 
 build:
 	cd $(NDCTL_DIR) && ./autogen.sh
-	cd $(NDCTL_DIR) && ./configure CFLAGS='-g -O0' --prefix=$(NDCTL_UTIL_INSTALL_DIR) --sysconfdir=/etc --libdir=$(NDCTL_UTIL_INSTALL_DIR)/lib
+	cd $(NDCTL_DIR) && ./configure CFLAGS='-g -O0' --prefix=$(NDCTL_UTIL_INSTALL_DIR) --sysconfdir=$(NDCTL_UTIL_INSTALL_DIR)/etc --libdir=$(NDCTL_UTIL_INSTALL_DIR)/lib --with-systemd-unit-dir=$(NDCTL_UTIL_INSTALL_DIR)/lib/systemd/system
 	$(Q)$(MAKE)
 
 install:
