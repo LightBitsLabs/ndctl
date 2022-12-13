@@ -1,0 +1,8 @@
+ndctl:
+  ndctl:
+    build:
+      - make -f Makefile.container build
+    install:
+      - make -f Makefile.container install
+    deps:
+      - file://.

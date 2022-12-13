@@ -1,0 +1,8 @@
+include $(WORKSPACE_TOP)/lb_containers/Makefile.container
+
+all: build
+
+TARGETS := build install
+
+${TARGETS}: deblegacy_container
+	run_in_container -i lbdeblegacy:${LBDEBLEGACY_CONTAINER_VERSION} -- ${MAKE} -f Makefile.lb $@
